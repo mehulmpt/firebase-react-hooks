@@ -8,12 +8,13 @@ const styles = theme => ({
   main: {
     width: "auto",
     display: "block", // Fix IE 11 issue.
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+    marginLeft: "20px",
+    marginRight: "20px",
+    [theme.breakpoints.up(400)]: {
       width: 400,
       marginLeft: "auto",
-      marginRight: "auto"
+      marginRight: "auto",
+      marginTop: "auto"
     }
   },
   paper: {
@@ -29,7 +30,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   submit: {
-    marginTop: theme.spacing.unit * 3
+    marginTop: "20px"
   }
 });
 
@@ -66,17 +67,6 @@ function HomePage(props) {
           className={classes.submit}
         >
           Login
-        </Button>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="secondary"
-          component={Link}
-          to="/dashboard"
-          className={classes.submit}
-        >
-          Dashboard
         </Button>
       </Paper>
     </main>

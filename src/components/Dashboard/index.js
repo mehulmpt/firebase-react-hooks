@@ -52,7 +52,7 @@ function Dashboard(props) {
         type="submit"
         fullWidth
         variant="contained"
-        color="secondary"
+        color="primary"
         onClick={logout}
         className={classes.submit}
       >

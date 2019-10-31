@@ -10,6 +10,7 @@ import ItemForm from "./ItemForm.js";
 import Icon from "@material-ui/core/Icon";
 import styled from "styled-components";
 import TrashIcon from "@material-ui/icons/Delete";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 const Background = styled.div`
   background: #209cee;
@@ -47,6 +48,7 @@ const CartStylized = styled.div`
   text-align: center;
   margin: auto;
 `;
+
 //fix trashcan icon
 // now to add back in acquiring item/transfering to another collection
 // refactoring/cleaning up code base
