@@ -76,10 +76,14 @@ function GroceryList() {
 
   useEffect(() => {
     //Creates array of documents within Shopping List DB
+    const user = firebase.auth().currentUser.uid;
+
     const unsubscribe = firebase
+
       .firestore()
       .collection("shopping-list-db")
       .where("list", "==", false)
+      .where("userId", "==", user)
       .orderBy("timestamp")
       .onSnapshot(snapshot => {
         const newItems = snapshot.docs.map(doc => ({
@@ -97,13 +101,14 @@ function GroceryList() {
 
 function CartList() {
   const [cartItems, setCartItems] = useState([]);
-  let user = firebase.auth().currentUser;
+  const user = firebase.auth().currentUser.uid;
   useEffect(() => {
     //Creates array of documents within Shopping List DB
     const unsubscribe = firebase
       .firestore()
       .collection("shopping-list-db")
       .where("list", "==", true)
+      .where("userId", "==", user)
 
       .orderBy("timestamp")
       .onSnapshot(snapshot => {
