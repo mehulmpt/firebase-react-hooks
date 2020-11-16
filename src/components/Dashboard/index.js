@@ -36,18 +36,20 @@ const styles = theme => ({
 function Dashboard(props) {
 	const { classes } = props
 
+	const [quote, setQuote] = useState('')
+	
+	useEffect(() => {
+		if(firebase.getCurrentUsername()) {
+			firebase.getCurrentUserQuote().then(setQuote)
+		}
+	}, [firebase.getCurrentUsername(), firebase.getCurrentUserQuote()])
+	
 	if(!firebase.getCurrentUsername()) {
 		// not logged in
 		alert('Please login first')
 		props.history.replace('/login')
 		return null
 	}
-
-	const [quote, setQuote] = useState('')
-
-	useEffect(() => {
-		firebase.getCurrentUserQuote().then(setQuote)
-	})
 
 	return (
 		<main className={classes.main}>
